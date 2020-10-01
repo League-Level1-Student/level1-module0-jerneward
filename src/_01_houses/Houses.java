@@ -19,34 +19,31 @@ public class Houses {
 		Rob.penDown(); 
 		Rob.setSpeed(100);
 		Random ran = new Random();
-		int randomnumber = ran.nextInt(3);
+	
 for (int i = 0; i < 10; i++) {
+	int randomnumber = ran.nextInt(3);
 		if(randomnumber == 0) {
-			newhouse("small");
+		drawpointyroof ("small" , Color.black);
 		}
 		if(randomnumber == 1) {
-			newhouse("medium");
+			drawpointyroof ("medium" , Color.pink);
 		}
 		if(randomnumber == 2) {
-			newhouse("large:");
+			newhouse("large" , Color.blue);
 		}
 }
 	}
 		
 
-static public void newhouse(String height) { 
+static public void newhouse(String height, Color C) { 
 	int length = 100;
-	if (height.equals("small")) {
-		length = 60;
-	}
-	if(height.equals("medium")) {
-		length = 120;
-	}
+
 	if(height.equals("large")) {
 		length = 250;
 	}
 	
-		Rob.move(length);
+		Rob.setPenColor(C);
+	Rob.move(length);
 		Rob.turn(90);
 		Rob.move(20);
 		Rob.turn(90);
@@ -55,7 +52,35 @@ static public void newhouse(String height) {
 		Rob.setPenColor(Color.GREEN);
 		Rob.move(50);
 		Rob.turn(270);
-		Rob.setPenColor(Color.black);
+	
+}
+	
+
+static public void drawpointyroof(String height, Color C) {
+	
+	int length = 100;
+	if (height.equals("small")) {
+		length = 60;
+	}
+	if(height.equals("medium")) {
+		length = 120;
+	}
+
+		Rob.setPenColor(C);
+	Rob.move(length);
+		Rob.turn(45);
+		Rob.move(20);
+		Rob.turn(90);
+		Rob.move(20);
+		Rob.turn(45);
+		Rob.move(length);
+		Rob.turn(270);
+		Rob.setPenColor(Color.GREEN);
+		Rob.move(50);
+		Rob.turn(270);
+	
 }
 	}
+
+
 
